@@ -15,7 +15,7 @@
 >#### (↑php artisan ui vue --auth預設登入後轉跳到/home)，
 >#### 若session cart非空合併至user cart。
 ## 商品管理
->#### REST api佐以Laravel Sanctum，
+>#### REST api佐以Laravel Sanctum， 
 >#### 須帶符合權限的Bearer token才可得到response(除取全商品之外)。
 >#### 管理頁面以middleware Manager()檢查須有管理員權限才可進入，
 >#### 前後端分離，以jQuery ajax串Rest api撰寫。
