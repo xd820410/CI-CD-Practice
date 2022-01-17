@@ -2,7 +2,7 @@
 [[git]](https://github.com/xd820410/mini-shop)&ensp;&ensp;[[demo]](https://www.huhu543.click/)
 ---
 ## 簡述
->#### 採用Repository Pattern，
+>#### 採用Repository Pattern， 
 >#### 將功能細分拆到各Service、Repository的method，
 >#### Repository調用Orm寫SQL，
 >#### Service調用Repository&處理商務邏輯，
