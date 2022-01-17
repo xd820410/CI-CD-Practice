@@ -2,9 +2,11 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
   laravel-tests:
@@ -41,6 +43,8 @@ jobs:
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Migrate
+      env:
+        DB_PORT: 3306
       run: php artisan migrate
     - name: Execute tests
       env:
