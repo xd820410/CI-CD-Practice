@@ -25,7 +25,7 @@ jobs:
     - name: Require Sail
       run: composer require laravel/sail --dev
     - name: Install Sail
-      run: php artisan sail:install --with=mysql,redis,meilisearch,mailhog,selenium
+      run: php artisan sail:install --with=mysql,selenium
     - name: Sail Up
       run: ./vendor/bin/sail up
     - name: Generate key
