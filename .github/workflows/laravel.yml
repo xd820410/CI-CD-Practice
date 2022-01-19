@@ -29,6 +29,8 @@ jobs:
         mysql version: '8.0'
         mysql database: 'ci_cd_practice'
         mysql root password: 'password'
+    - name: Create Database
+      run: mysql -h 127.0.0.1 --port 3306 -u root -p password -e 'CREATE DATABASE IF NOT EXISTS ci_cd_practice;'
     - name: Copy .env
       run: cp .env.example .env
     - name: Install Dependencies
