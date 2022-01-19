@@ -12,7 +12,7 @@ jobs:
   laravel-tests:
     runs-on: ubuntu-latest
     container:
-      image: kirschbaumdevelopment/laravel-test-runner:8.1
+      image: kirschbaumdevelopment/laravel-test-runner:7.4
     
     services:
       mysql-service:
@@ -37,7 +37,7 @@ jobs:
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer install --no-scripts
     - name: Generate key
       run: php artisan key:generate
     - name: Directory Permissions
