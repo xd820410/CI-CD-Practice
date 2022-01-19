@@ -18,7 +18,7 @@ jobs:
         # Docker Hub image (also with version)
         image: mysql:8.0
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: mini_shop
         ports:
           - 3306
@@ -45,7 +45,7 @@ jobs:
     - name: Migrate
       env:
         DB_PORT: 3306
-      run: php artisan migrate
+      run: php artisan migrate --force
     - name: Execute tests
       env:
         DB_PORT: 3306
