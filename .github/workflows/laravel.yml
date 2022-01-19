@@ -11,24 +11,33 @@ on:
 jobs:
   laravel-tests:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: ci_cd_practice
+        ports:
+          - 3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=10s --health-retries=3
 
     steps:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '7.4'
     - uses: actions/checkout@v2
-    - name: Shutdown Ubuntu MySQL (SUDO)
-      run: sudo service mysql stop
-    - name: Set up MySQL
-      uses: mirromutth/mysql-action@v1.1
-      with:
-        host port: 3306
-        container port: 3306
-        character set server: 'utf8mb4'
-        collation server: 'utf8mb4_general_ci'
-        mysql version: '8.0'
-        mysql database: 'ci_cd_practice'
-        mysql root password: 'password'
+#     - name: Shutdown Ubuntu MySQL (SUDO)
+#       run: sudo service mysql stop
+#     - name: Set up MySQL
+#       uses: mirromutth/mysql-action@v1.1
+#       with:
+#         host port: 3306
+#         container port: 3306
+#         character set server: 'utf8mb4'
+#         collation server: 'utf8mb4_general_ci'
+#         mysql version: '8.0'
+#         mysql database: 'ci_cd_practice'
+#         mysql root password: 'password'
     - name: Copy .env
       run: cp .env.example .env
     - name: Install Dependencies
